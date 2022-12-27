@@ -1,0 +1,50 @@
+<html lang="ja">
+<head>
+    <style>
+        my-great-beautiful-button-with-template.bright {
+            --background-color: yellow;
+            --color: gray;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        https://codezine.jp/article/detail/15921 の写経2
+    </div>
+
+    <!-- コンポーネントの配置 -->
+    <div>
+        <my-great-beautiful-button-with-template>
+            <span slot="label">submit now!(with template)</span>
+        </my-great-beautiful-button-with-template>
+    </div>
+
+    <!-- コンポーネントの配置 - 色変更(bright) -->
+    <div style="margin-top: 8px;;">
+        <my-great-beautiful-button-with-template
+            class="bright"
+            >
+            <span slot="label">submit now!(with template) bright</span>
+        </my-great-beautiful-button-with-template>
+    </div>
+
+    <!-- HTMLテンプレートを定義する -->
+    <template id="my-great-beautiful-button">
+        <style>
+            button {
+                border: none;
+                border-radius: 8px;
+                padding: 10px 20px;
+                background-color: var( --background-color, brown );
+                color: var( --color, azure );
+            }
+        </style>
+
+        <button type="submit">
+            <slot name="label"></slot>
+        </button>
+    </template>
+    
+    <script src="./main2.js"></script>
+</body>
+</html>
